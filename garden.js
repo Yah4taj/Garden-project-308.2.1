@@ -60,13 +60,40 @@ if (week1Plants > 0.8 * maxPlants) {
   let Tenthweek = Ninthweek * 2
   console.log("Tenth week total plants", Tenthweek);
 
-  //Total capacity required for 100 plants (circumference)
+  //Total capacity area required for plants after ten weeks (circumference)
   let Newcapacity = Tenthweek * plantSpace
   console.log("New capacity circumference equals", Newcapacity);
 
-  //Calculate the radius
+  // Additional space needed
+  let additionalSpace = Newcapacity - maxPlants
+
+  //Calculate the new radius
   
   let Newradius = Math.ceil(Newcapacity / PI /2)
-  console.log("Radius equals", Newradius);
+  console.log("Radius equals", Newradius, "meters");
 
-  
+
+  //Part 3 Errors in Judgment
+
+  // Calculate the total area required for the plants (as before).
+
+let Expandedarea = Math.ceil(PI *Newradius * Newradius)
+console.log("Expanded garden area equals", Expandedarea);
+
+// Compare the required area to the original garden’s capacity.
+
+console.log(`Required area of ${Newcapacity} meters exceeds the original garden's ${maxPlants} capacity`);
+// If the required area exceeds the garden’s capacity, throw an error.
+if ("Expandedarea >area"){
+  throw new Error("Space exceeded, no room");
+}
+// Catch the error and log an appropriate message.
+try {
+  ("Expandedarea > area")
+} catch (error) {
+console.log( "The garden is too small:",error.message);
+    
+    console.log("Plants after 10 weeks:",Tenthweek);
+    console.log("Total area required:", Expandedarea, "square meters");
+    console.log("Garden capacity is sufficient.");
+  console.error("Error:" , error.message);}
